@@ -43,7 +43,6 @@ void dbs_check_cpu(struct dbs_data *dbs_data, int cpu)
 	unsigned int max_load = 0;
 	unsigned int ignore_nice;
 	unsigned int j;
-	struct cpufreq_govinfo govinfo;
 
 	if (dbs_data->cdata->governor == GOV_ONDEMAND) {
  		struct od_cpu_dbs_info_s *od_dbs_info =
