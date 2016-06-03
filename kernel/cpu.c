@@ -385,9 +385,8 @@ int __ref cpu_down(unsigned int cpu)
 
 	cpu_maps_update_begin();
 
-	// AP: Avoid core 0 from going down always + other cluster 2 cores if boeffla_config_mode is active
-	if ((cpu == 0) ||
-		((boeffla_config_mode) && (cpu >=4)))
+	// AP: Keep CPU cores 0 and 4 always on
+	if ((cpu == 0) || (cpu == 4))
 	{
 		err = -EBUSY;
 		goto out;
